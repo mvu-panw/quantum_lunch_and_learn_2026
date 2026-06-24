@@ -1,0 +1,237 @@
+/* PANW brand tokens */
+:root {
+  --orange: #FA582D;
+  --navy:   #0D1B2E;
+  --grey:   #F4F4F4;
+  --white:  #FFFFFF;
+  --text:   #333333;
+  --muted:  #888888;
+  --border: #E0E0E0;
+  --radius: 8px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, system-ui, sans-serif;
+  background: var(--grey);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Navbar ─────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--navy);
+  padding: 0 32px;
+  height: 64px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+
+.navbar a { text-decoration: none; }
+
+.logo-nav {
+  height: 36px;
+  display: block;
+  background: var(--white);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #CBD5E0;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: color .15s, background .15s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--white);
+  background: rgba(255,255,255,.08);
+}
+
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.hero p {
+  margin-top: 14px;
+  font-size: 16px;
+  color: rgba(255,255,255,.75);
+}
+
+.hero-img-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img {
+  width: clamp(137px, 20vw, 252px);
+  border-radius: 8px;
+  display: block;
+  filter: drop-shadow(0 4px 24px rgba(0,0,0,.5));
+}
+
+/* ── Content sections ─────────────────────── */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.section {
+  padding: 48px 0 0;
+}
+
+.section h2 {
+  font-size: 24px;
+  color: var(--navy);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--orange);
+  display: inline-block;
+}
+
+.section p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 680px;
+}
+
+.section ul {
+  margin-top: 12px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section ul li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── Menu-style agenda ───────────────────── */
+.menu-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 680px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.menu-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.menu-dots {
+  flex: 1;
+  border-bottom: 2px dotted #bbb;
+  margin: 0 10px;
+  position: relative;
+  top: -3px;
+}
+
+.menu-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Embedded iframe pages (lab, slides) ─── */
+.embed-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.embed-page .navbar { flex-shrink: 0; }
+
+.embed-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 20px;
+  flex-shrink: 0;
+}
+
+.embed-toolbar-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.embed-open-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid var(--orange);
+  border-radius: 4px;
+  transition: background .15s, color .15s;
+}
+
+.embed-open-link:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.embed-frame {
+  flex: 1;
+  border: none;
+  width: 100%;
+}
