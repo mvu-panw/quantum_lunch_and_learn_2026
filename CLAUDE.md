@@ -20,11 +20,24 @@ Push to `main` → GitLab CI (`.gitlab-ci.yml`) automatically deploys to GitLab 
 
 ## Architecture
 
-**Single shared stylesheet**: All pages link to `css/styles.css`. Brand tokens are defined in `:root` — `--orange`, `--navy`, `--grey`, `--white`, `--text`, `--muted`, `--border`. Use these variables for any new styling; never hardcode colors.
+**Single shared stylesheet**: All pages link to `css/styles.css`. Brand tokens are defined in `:root` — use these variables for all styling, never hardcode colors:
+
+| Token | Value | Use |
+|---|---|---|
+| `--orange` | `#FA582D` | Accents, active states, CTAs |
+| `--navy` | `#0D1B2E` | Navbar, hero background, headings |
+| `--grey` | `#F4F4F4` | Page background |
+| `--text` | `#333333` | Body copy |
+| `--muted` | `#888888` | Secondary labels |
+| `--border` | `#E0E0E0` | Dividers |
+| `--radius` | `8px` | Border radius |
+| `--shadow` | `0 2px 12px rgba(0,0,0,.10)` | Card shadows |
 
 **Two page layouts**:
 - *Content layout* (`index.html`): standard scrolling page with `.content` / `.section` classes.
 - *Embed layout* (`lab.html`, `slides.html`): `<body class="embed-page">` makes the page full-height with a sticky navbar, a thin `.embed-toolbar` strip, and a full-bleed `<iframe class="embed-frame">`.
+
+**Agenda/menu component**: `index.html` uses a restaurant-menu style agenda built with `.menu-list` > `.menu-item` elements containing three spans: `.menu-name` (left), `.menu-dots` (flex-grow dotted line), `.menu-price` (right, styled in `--orange`). Use this pattern for any timed agenda.
 
 **No templating**: The navbar HTML is copy-pasted into every `.html` file. When changing shared layout (navbar links, logo, etc.), update all HTML files. Mark the current page with `class="active"` on its nav link.
 
@@ -32,5 +45,11 @@ Push to `main` → GitLab CI (`.gitlab-ci.yml`) automatically deploys to GitLab 
 
 ## Embedded Google Content
 
-- `lab.html` — embeds Google Doc `16Iw4L-gX5jNOeEvNaykjvZHUAIaqbk7GsyD5MLruzFM` via `/preview` (requires viewer to be signed in and shared on the doc)
-- `slides.html` — embeds Google Slides `1Lo3YaBxOoE1F1tO_2cIVe5skudHiIhlPgLhKEdWYVmg` via `/embed`
+Google Docs and Google Slides use different embed URL patterns:
+
+- **Google Doc** (`lab.html`): use `/preview` suffix — `https://docs.google.com/document/d/{ID}/preview`. Requires viewers to be signed in with access to the doc.
+- **Google Slides** (`slides.html`): use `/embed` suffix with params — `https://docs.google.com/presentation/d/{ID}/embed?start=false&loop=false`.
+
+Current embedded resources:
+- `lab.html` — Google Doc `16Iw4L-gX5jNOeEvNaykjvZHUAIaqbk7GsyD5MLruzFM`
+- `slides.html` — Google Slides `1Lo3YaBxOoE1F1tO_2cIVe5skudHiIhlPgLhKEdWYVmg`
