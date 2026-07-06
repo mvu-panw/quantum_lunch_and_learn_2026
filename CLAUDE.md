@@ -16,7 +16,7 @@ No build step or package manager. Changes are visible immediately on refresh.
 
 ## Deployment
 
-Push to `main` → GitLab CI (`.gitlab-ci.yml`) automatically deploys to GitLab Pages. The CI job copies repo contents into `public/` and uploads as a Pages artifact.
+Push to `main` → GitHub Pages serves the repo directly (no CI workflow, no build step). The `CNAME` file pins the custom domain `paloquantumlearn.com`.
 
 ## Architecture
 
