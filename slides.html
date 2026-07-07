@@ -18,16 +18,26 @@
 
   <div class="embed-toolbar">
     <span class="embed-toolbar-label">Quantum Lunch and Learn Slide Deck</span>
-    <a class="embed-open-link" href="https://docs.google.com/presentation/d/1TijZtIM4a67WEp7lfhDjBeqPzWj_wIA6j_exV5kyCwQ/edit?usp=sharing" target="_blank" rel="noopener">
-      Open in new tab ↗
-    </a>
+    <div class="embed-toolbar-actions">
+      <button class="embed-open-link" id="fullscreen-btn" type="button">Fullscreen ⛶</button>
+      <a class="embed-open-link" href="https://docs.google.com/presentation/d/1TijZtIM4a67WEp7lfhDjBeqPzWj_wIA6j_exV5kyCwQ/edit?usp=sharing" target="_blank" rel="noopener">
+        Open in new tab ↗
+      </a>
+    </div>
   </div>
 
   <iframe
     class="embed-frame"
-    src="https://docs.google.com/presentation/d/1TijZtIM4a67WEp7lfhDjBeqPzWj_wIA6j_exV5kyCwQ/edit?usp=sharing"
+    id="slides-frame"
+    src="https://docs.google.com/presentation/d/1TijZtIM4a67WEp7lfhDjBeqPzWj_wIA6j_exV5kyCwQ/embed?start=true&loop=false"
     title="Quantum Lunch and Learn Slide Deck"
     allowfullscreen>
   </iframe>
+
+  <script>
+    document.getElementById('fullscreen-btn').addEventListener('click', () => {
+      document.getElementById('slides-frame').requestFullscreen();
+    });
+  </script>
 </body>
 </html>
